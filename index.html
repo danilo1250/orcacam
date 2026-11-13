@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OrçaCam</title>
+<meta name="description" content="Orçamentos de câmeras de segurança em PDF, direto do celular.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-title" content="OrçaCam">
+<meta name="theme-color" content="#14324f">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topo">
+  <div class="topo-in">
+    <div class="marca"><img src="icons/icon.svg" alt="" width="30" height="30"><span>OrçaCam <small>Orçamentos de câmeras de segurança</small></span></div>
+    <nav class="abas" id="abas">
+      <button data-view="lista">Orçamentos</button>
+      <button data-view="produtos">Produtos</button>
+      <button data-view="empresa">Minha empresa</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<dialog id="dlgProduto">
+  <form method="dialog" id="formProduto" class="dlg">
+    <h2 id="dlgProdutoTitulo">Novo produto</h2>
+    <label>Nome do produto ou serviço
+      <input id="pNome" required maxlength="120" placeholder="Ex.: Câmera Bullet Full HD 1080p">
+    </label>
+    <label>Descrição (opcional)
+      <input id="pDesc" maxlength="200" placeholder="Ex.: Infravermelho 20 m, lente 2.8 mm">
+    </label>
+    <div class="duas">
+      <label>Unidade
+        <select id="pUn">
+          <option value="un">un (unidade)</option>
+          <option value="m">m (metro)</option>
+          <option value="pç">pç (peça)</option>
+          <option value="cx">cx (caixa)</option>
+          <option value="kit">kit</option>
+          <option value="serv">serv (serviço)</option>
+          <option value="h">h (hora)</option>
+        </select>
+      </label>
+      <label>Preço (R$)
+        <input id="pPreco" inputmode="decimal" placeholder="0,00" required>
+      </label>
+    </div>
+    <label>Link do anúncio ou fornecedor (opcional)
+      <input id="pLink" inputmode="url" maxlength="600" placeholder="https://…">
+    </label>
+    <div class="dlg-acoes">
+      <button type="button" class="btn sec" data-fechar>Cancelar</button>
+      <button type="submit" class="btn">Salvar produto</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlgImportar">
+  <div class="dlg">
+    <h2>Importar produto por link</h2>
+    <p class="muted small">Cole o link do anúncio (Mercado Livre ou outra loja). O nome é reconhecido pelo link. Se você colar junto o texto do anúncio com o preço (ex.: R$ 189,90), o preço também é preenchido.</p>
+    <textarea id="impTexto" placeholder="https://produto.mercadolivre.com.br/…"></textarea>
+    <div class="dlg-acoes">
+      <button type="button" class="btn sec" data-fechar>Cancelar</button>
+      <button type="button" class="btn" data-acao="importar">Continuar</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="dlgPicker">
+  <div class="dlg">
+    <h2>Adicionar produtos</h2>
+    <input id="pickBusca" type="search" placeholder="Buscar produto…" autocomplete="off">
+    <div id="pickLista" class="pick-lista"></div>
+    <div class="dlg-acoes">
+      <button type="button" class="btn" data-fechar>Concluir</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="dlgConfirma">
+  <form method="dialog" class="dlg">
+    <p id="confMsg"></p>
+    <div class="dlg-acoes">
+      <button type="submit" class="btn sec" value="">Cancelar</button>
+      <button type="submit" class="btn" id="confOk" value="ok">Excluir</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="vendor/jspdf.umd.min.js"></script>
+<script src="vendor/jspdf.plugin.autotable.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

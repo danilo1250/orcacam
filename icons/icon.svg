@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c6fd1"/><stop offset="1" stop-color="#0d2a47"/></linearGradient></defs>
+  <rect width="512" height="512" fill="url(#g)"/>
+  <!-- folha do orçamento -->
+  <rect x="136" y="96" width="210" height="280" rx="22" fill="#ffffff"/>
+  <rect x="168" y="140" width="146" height="18" rx="9" fill="#9fc3ec"/>
+  <rect x="168" y="182" width="110" height="18" rx="9" fill="#c9dcf2"/>
+  <rect x="168" y="224" width="80" height="18" rx="9" fill="#c9dcf2"/>
+  <!-- lente da câmera -->
+  <circle cx="318" cy="330" r="92" fill="#0d2a47"/>
+  <circle cx="318" cy="330" r="78" fill="#ffffff"/>
+  <circle cx="318" cy="330" r="58" fill="#12365a"/>
+  <circle cx="318" cy="330" r="30" fill="#2f8cf0"/>
+  <circle cx="300" cy="312" r="11" fill="#ffffff" opacity=".9"/>
+</svg>
